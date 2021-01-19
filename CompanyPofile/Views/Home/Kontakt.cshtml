@@ -1,0 +1,73 @@
+﻿@model Inquiry
+@{
+    ViewData["Title"] = "Kontakt";
+}
+<h1 class="mt-4 mb-3">
+    Napisz do Nas
+</h1>
+<hr />
+<!-- Content Row -->
+<div class="row">
+
+    <!-- Contact Details Column -->
+    <div class="col-lg-4 mb-4 ">
+
+    </div>
+</div>
+<!-- /.row -->
+<!-- Contact Form -->
+<!-- In order to set the email address and subject line for the contact form go to the bin/contact_me.php file. -->
+<div class="row">
+    <div class="col-lg-8 mb-4">
+        <h6 class="mb-4">Regularnie otrzymujemy zapytania od wszelkiego rodzaju firm. Nie wahaj się i wyślij nam wiadomość.</h6>
+        <form asp-action="Kontakt" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="CompanyName" class="control-label"></label>
+                <input asp-for="CompanyName" class="form-control" />
+                <span asp-validation-for="CompanyName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ContactFullName" class="control-label"></label>
+                <input asp-for="ContactFullName" class="form-control" />
+                <span asp-validation-for="ContactFullName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="PhoneNumber" class="control-label"></label>
+                <input asp-for="PhoneNumber" class="form-control" type="tel" />
+                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Message" class="control-label"></label>
+                <textarea asp-for="Message" class="form-control"></textarea>
+                <span asp-validation-for="Message" class="text-danger"></span>
+            </div>
+
+
+            <div class="control-group  form-group">
+                <div class="controls">
+                    <p>Dolacz pliki</p>
+                    <input type="file" id="input-file-max-fs" class="file-upload" data-max-file-size="2M" multiple="multiple" />
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Wyślij Wiadomość" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+    <!-- /.row -->

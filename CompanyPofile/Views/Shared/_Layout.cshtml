@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="">
+    <meta name="author" content="Dariusz Sokol">
+    <title>@ViewData["Title"] - CompanyPofile</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="~/css/modern-business.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+
+    <!-- Navigation -->
+    <partial name="DisplayPartials/_Nav.cshtml" />
+
+    <!-- Display Carousel on Index page -->
+    @if (TempData["Index"] != null) {<header><partial name="DisplayPartials/_Carousel.cshtml" /></header>}
+
+    <div class="container ">
+        <main role="main" class="flex-shrink-0">
+            <!-- Page Content -->
+            <div class="container">
+                @RenderBody()
+            </div>
+        </main>
+    </div>
+    <!-- Footer -->
+    <partial name="DisplayPartials/_Footer.cshtml" />
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
